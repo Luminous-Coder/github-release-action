@@ -11,7 +11,8 @@ inputs:
     default: CHANGELOG.md
   asset-name:
     description: The filename of the asset to upload
-    required: true
+    required: false
+    default: ''
   asset-label:
     description: The label of the asset
     required: false

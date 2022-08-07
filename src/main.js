@@ -29,17 +29,19 @@ async function run() {
         generate_release_notes: true
     });
 
-    const assetName = core.getInput("asset-name");
-    const assetLabel = core.getInput("asset-label").length !== 0 ?
-                       core.getInput("asset-label") : assetName;
-
     // Upload asset.
-    await gh.rest.repos.uploadReleaseAsset({
-        ...context.repo,
-        release_id: releaseId,
-        name: assetLabel,
-        data: fs.readFileSync(assetName).toString()
-    });
+    const assetName = core.getInput("asset-name");
+    if (assetName !== "") {
+        const assetLabel = core.getInput("asset-label").length !== 0 ?
+            core.getInput("asset-label") : assetName;
+
+        await gh.rest.repos.uploadReleaseAsset({
+            ...context.repo,
+            release_id: releaseId,
+            name: assetLabel,
+            data: fs.readFileSync(assetName).toString()
+        });
+    }
 
     core.setOutput("release-id", releaseId);
     core.setOutput("html-url", htmlUrl);
