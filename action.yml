@@ -1,0 +1,21 @@
+name: GitHub Release Action
+description: An action that creates GitHub releases
+inputs:
+  title:
+    description: The title of the release
+    required: false
+    default: '{version}'
+  changelog:
+    description: The path to the changelog
+    required: false
+    default: CHANGELOG.md
+  asset-name:
+    description: The filename of the asset to upload
+    required: true
+  asset-label:
+    description: The label of the asset
+    required: false
+    default: ''
+runs:
+  using: node16
+  main: src/main.ts
