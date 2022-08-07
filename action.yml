@@ -19,4 +19,4 @@ inputs:
     default: ''
 runs:
   using: node16
-  main: src/main.ts
+  main: src/main.js
