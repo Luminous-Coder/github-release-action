@@ -1,7 +1,7 @@
-import * as core from "@actions/core";
-import * as fs from "fs";
-import {context} from "@actions/github";
-import {GitHub} from "@actions/github/lib/utils";
+const core = require("@actions/core");
+const fs = require("fs");
+const {context} = require("@actions/github");
+const {GitHub} = require("@actions/github/lib/utils");
 
 async function run() {
     if (!process.env.GITHUB_TOKEN) {
