@@ -17,6 +17,13 @@ inputs:
     description: The label of the asset
     required: false
     default: ''
+outputs:
+  release-id:
+    description: The ID of the GitHub release
+  html-url:
+    description: The URL to the GitHub release page
+  upload-url:
+    description: The URL to upload assets
 runs:
   using: node16
-  main: src/main.js
+  main: dist/index.js
