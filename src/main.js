@@ -48,7 +48,7 @@ async function run() {
     core.setOutput("upload-url", uploadUrl);
 }
 
-function getLatestChangelog(changelog: string): { version: string, body: string } {
+function getLatestChangelog(changelog): { version, body } {
     // Find the latest version.
     let i = changelog.search(/## *[\w0-9.-]*/);
     if (i === -1) {
