@@ -15,6 +15,7 @@ async function run() {
     const gh = new GitHub(process.env.GITHUB_TOKEN);
 
     // Create release.
+    const title = core.getInput("title").replaceAll(/\{version}/, version);
     const {
         data: {
             id: releaseId,
@@ -23,8 +24,8 @@ async function run() {
         }
     } = await gh.rest.repos.createRelease({
         ...context.repo,
-        tag_name: version,
-        name: version,
+        tag_name: title,
+        name: title,
         body,
         generate_release_notes: true
     });
